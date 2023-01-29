@@ -50,6 +50,8 @@ const Header = () => {
     }
   };
 
+  console.log(userEmail);
+
   const setUser = (user) =>
     dispatch(
       setUserLoginDetails({
