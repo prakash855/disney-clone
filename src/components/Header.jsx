@@ -126,6 +126,7 @@ const Logo = styled.a`
   max-height: 70px;
   font-size: 0;
   display: inline-block;
+
   img {
     display: block;
     width: 100%;
@@ -138,21 +139,21 @@ const NavMenu = styled.div`
   flex-flow: row nowrap;
   height: 100%;
   justify-content: flex-end;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   position: relative;
   margin-right: auto;
-  margin-left: 25%;
+  margin-left: 25px;
 
   a {
     display: flex;
     align-items: center;
-    padding-inline-end: 0 12px;
+    padding: 0 12px;
 
     img {
       height: 20px;
       min-width: 20px;
-      width: px;
+      width: 20px;
       z-index: auto;
     }
 
@@ -161,7 +162,7 @@ const NavMenu = styled.div`
       font-size: 13px;
       letter-spacing: 1.42px;
       line-height: 1.08;
-      padding: 2px 0;
+      padding: 2px 0px;
       white-space: nowrap;
       position: relative;
 
@@ -170,8 +171,8 @@ const NavMenu = styled.div`
         border-radius: 0px 0px 4px 4px;
         bottom: -6px;
         content: "";
-        left: 0;
         height: 2px;
+        left: 0px;
         opacity: 0;
         position: absolute;
         right: 0px;
@@ -204,7 +205,7 @@ const Login = styled.a`
   letter-spacing: 1.5px;
   border: 1px solid #f9f9f9;
   border-radius: 4px;
-  transition: all 0.2ms ease 0s;
+  transition: all 0.2s ease 0s;
 
   &:hover {
     background-color: #f9f9f9;
@@ -240,11 +241,13 @@ const SignOut = styled.div`
   cursor: pointer;
   align-items: center;
   justify-content: center;
+
   ${UserImage} {
     border-radius: 50%;
     width: 100%;
     height: 100%;
   }
+
   &:hover {
     ${DropDown} {
       opacity: 1;
