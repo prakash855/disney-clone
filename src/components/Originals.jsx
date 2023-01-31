@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { selectedOriginal } from "../features/movie/movieSlice";
+import Loader from "./Loader";
 
 const Originals = () => {
   const originals = useSelector(selectedOriginal);
@@ -10,15 +11,18 @@ const Originals = () => {
     <Container>
       <h4>Originals</h4>
       <Content>
-        {originals &&
+        {originals ? (
           originals.map((original, key) => (
             <Wrap key={key}>
               {original.id}
-              <Link to={`/detail/${original.id}`}>
+              <Link to={`/detail${original.id}`}>
                 <img src={original.cardImg} alt={original.title} />
               </Link>
             </Wrap>
-          ))}
+          ))
+        ) : (
+          <Loader />
+        )}
       </Content>
     </Container>
   );

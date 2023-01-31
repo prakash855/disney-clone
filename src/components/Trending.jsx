@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { selectedTrending } from "../features/movie/movieSlice";
+import Loader from "./Loader";
 
 const Trending = () => {
   const trendings = useSelector(selectedTrending);
@@ -10,7 +11,7 @@ const Trending = () => {
     <Container>
       <h4>Trending</h4>
       <Content>
-        {trendings &&
+        {trendings ? (
           trendings.map((trending, key) => (
             <Wrap key={key}>
               {trending.id}
@@ -18,7 +19,10 @@ const Trending = () => {
                 <img src={trending.cardImg} alt={trending.title} />
               </Link>
             </Wrap>
-          ))}
+          ))
+        ) : (
+          <Loader />
+        )}
       </Content>
     </Container>
   );

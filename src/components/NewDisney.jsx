@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { selectedNewDisney } from "../features/movie/movieSlice";
+import Loader from "./Loader";
 
 const NewDisney = () => {
   const newDisneys = useSelector(selectedNewDisney);
@@ -10,7 +11,7 @@ const NewDisney = () => {
     <Container>
       <h4>New to Disney+</h4>
       <Content>
-        {newDisneys &&
+        {newDisneys ? (
           newDisneys.map((newDisney, key) => (
             <Wrap key={key}>
               {newDisney.id}
@@ -18,7 +19,10 @@ const NewDisney = () => {
                 <img src={newDisney.cardImg} alt={newDisney.title} />
               </Link>
             </Wrap>
-          ))}
+          ))
+        ) : (
+          <Loader />
+        )}
       </Content>
     </Container>
   );

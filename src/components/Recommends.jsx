@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { selectedRecommend } from "../features/movie/movieSlice";
+import Loader from "./Loader";
 
 const Recommends = () => {
   const movies = useSelector(selectedRecommend);
@@ -10,7 +11,7 @@ const Recommends = () => {
     <Container>
       <h4>Recommended for You</h4>
       <Content>
-        {movies &&
+        {movies ? (
           movies.map((movie, key) => (
             <Wrap key={key}>
               {movie.id}
@@ -18,7 +19,10 @@ const Recommends = () => {
                 <img src={movie.cardImg} alt={movie.title} />
               </Link>
             </Wrap>
-          ))}
+          ))
+        ) : (
+          <Loader />
+        )}
       </Content>
     </Container>
   );
