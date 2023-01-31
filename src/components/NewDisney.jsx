@@ -14,7 +14,7 @@ const NewDisney = () => {
           newDisneys.map((newDisney, key) => (
             <Wrap key={key}>
               {newDisney.id}
-              <Link to={`/detail${newDisney.id}`}>
+              <Link to={`/detail/${newDisney.id}`}>
                 <img src={newDisney.cardImg} alt={newDisney.title} />
               </Link>
             </Wrap>
