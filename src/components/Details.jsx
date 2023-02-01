@@ -20,7 +20,7 @@ const Details = () => {
       })
       .catch((error) => console.log(`Error getting document ${error}`));
   }, [id]);
-  console.log(detailsData);
+
   return (
     <Container>
       <Background>
