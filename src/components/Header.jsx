@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { auth, provider } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   selectedUserEmail,
   selectedUserName,
@@ -63,7 +63,7 @@ const Header = () => {
 
   return (
     <Nav>
-      <Logo>
+      <Logo onClick={() => history.push("/home")}>
         <img src="/images/logo.svg" alt="" />
       </Logo>
       {!userName ? (
@@ -71,26 +71,26 @@ const Header = () => {
       ) : (
         <>
           <NavMenu>
-            <a href="/home">
+            <Link to="/home">
               <img src="/images/home-icon.svg" alt="HOME" />
               <span>Home</span>
-            </a>
-            <a href="/SEARCH">
+            </Link>
+            <Link to="/SEARCH">
               <img src="/images/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
               <span>WATCHLIST</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/images/series-icon.svg" alt="SERIES" />
               <span>SERIES</span>
-            </a>
+            </Link>
           </NavMenu>
           <SignOut>
             <UserImage src={userPhoto} alt="UserImage" />
@@ -126,6 +126,7 @@ const Logo = styled.a`
   max-height: 70px;
   font-size: 0;
   display: inline-block;
+  cursor: pointer;
 
   img {
     display: block;
