@@ -15,14 +15,15 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const userName = useSelector(selectedUserName);
-  let recommend = [],
-    newDisney = [],
-    original = [],
-    trending = [];
 
   useEffect(() => {
+    let recommend = [],
+      newDisney = [],
+      original = [],
+      trending = [];
+
     db.collection("movies").onSnapshot((snapshot) => {
-      snapshot.docs.map((doc) => {
+      snapshot.docs.forEach((doc) => {
         switch (doc.data().type) {
           case `recommend`:
             recommend = [...recommend, { id: doc.id, ...doc.data() }];
@@ -39,11 +40,14 @@ const Home = () => {
           case `trending`:
             trending = [...trending, { id: doc.id, ...doc.data() }];
             break;
+
+          default:
+            break;
         }
       });
       dispatch(setMovies({ recommend, newDisney, original, trending }));
     });
-  }, [userName]);
+  }, [userName, dispatch]);
 
   return (
     <Container>
