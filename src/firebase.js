@@ -2,15 +2,14 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/storage";
 import "firebase/compat/firestore";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyCYFHlysNLwpB6-ZDYk8OCyjxfsF9IGmtY",
-  authDomain: "disney-plus-cdf5c.firebaseapp.com",
-  projectId: "disney-plus-cdf5c",
-  storageBucket: "disney-plus-cdf5c.appspot.com",
-  messagingSenderId: "569715628773",
-  appId: "1:569715628773:web:400e75e0509b893751120c",
-  measurementId: "G-SRZ5TF3HDD",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
